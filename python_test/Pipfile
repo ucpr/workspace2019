@@ -11,6 +11,14 @@ neovim = "*"
 bpython = "*"
 flask = "*"
 pika = "*"
+flask-cors = "*"
+responder = {editable = true,git = "https://github.com/taoufik07/responder.git"}
+requests = "*"
+pipenv = "*"
+install = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
