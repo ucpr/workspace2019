@@ -13,8 +13,9 @@ func get_handler(c echo.Context) (err error) {
 }
 
 func post_handler(c echo.Context) (err error) {
-	fmt.Println(c.Request().PostFormValue("submit"))
-	return c.String(http.StatusOK, "SUBMIT")
+	//fmt.Println(c.Request().PostFormValue("submit"))
+	fmt.Println(c.FormValue("submit"))
+	return c.String(http.StatusOK, "submit")
 }
 
 func main() {
