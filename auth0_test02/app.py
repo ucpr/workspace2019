@@ -16,7 +16,8 @@ ALGORITHMS = ["RS256"]
 
 class AuthError(Exception):
     ## AuthErrorを定義しているが,
-    ## responderでerror_handleてきなのができないっぽいのでtry-exceptしないと行けなさそう
+    ## responderでerror_handleてきなのができないっぽいので
+    ## try-exceptしないと行けなさそう
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
