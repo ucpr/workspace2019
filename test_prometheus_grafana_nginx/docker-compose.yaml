@@ -10,15 +10,13 @@ services:
       - ./log:/var/log/nginx
 
     
-  nginx-exporter:
+  nginx_exporter:
     image: nginx/nginx-prometheus-exporter:0.4.2
     ports:
       - "9113:9113"
-        #    environment:
-        #      - SCRAPE_URI=http://nginx/stub_status
     command:
       - -nginx.scrape-uri
-      - nginx:80/stub_status
+      - http://nginx:80/stub_status
 
   prometheus:
     image: prom/prometheus
@@ -31,4 +29,3 @@ services:
     image: grafana/grafana
     ports:
       - "3000:3000"
-         
