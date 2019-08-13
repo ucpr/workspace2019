@@ -2,18 +2,13 @@ package pkg;
 
 import java.io.*;
 
-class Consts {
-    public static final boolean TK_NUM = true;
-    public static final boolean TK_OP = false;
-}
-
 class Token {
     public boolean ty;
     public String val;
 }
 
 class Tokenizer {
-    // Consts
+    // TokenKinds
     public static final boolean TK_NUM = true;
     public static final boolean TK_OP = false;
 
@@ -81,7 +76,7 @@ class Node {
 
 public class parse {
 
-    Token[] tokens;
+    Token token;
     int pos;
 
     parse(Token[] tk) {
@@ -99,26 +94,28 @@ public class parse {
 
     Node new_node_num(String val) {
         Node node = new Node();
-        node.ty = Consts.TK_NUM;
+        node.ty = TokenKinds.TK_NUM;
         node.val = val;
         return node;
     }
 
     // 次のトークンが期待した型かチェックして、
     // 期待した型のときはposを+!してtrueを返す
-    boolean consume(boolean ty) {
-        if (tokens[pos].ty != ty) {
-            return false;
-        }
-        pos += 1;
-        return true;
+    boolean consume(char op) {
+        if (token.kind != TokenKinds.TK_RESERVED || token.)
     }
 
     Node add() {
         Node node = mul();
         
         while (true) {
-            if consume()
+            if consume('+') {
+                
+            } else if consume('-') {
+
+            } else {
+                return node;
+            }
         }
     }
 
